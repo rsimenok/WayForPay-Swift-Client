@@ -32,6 +32,7 @@ public struct WFPChargeRequest: Codable {
     public var merchantTransactionSecureType: WFPMerchantTransactionSecureType
     public var applePayString: String
     public var socialUri: String
+    public var serviceUrl: String
     /// max 1728000 sec;  min 60 sec
     public var holdTimeout: Int
 
@@ -57,6 +58,7 @@ public struct WFPChargeRequest: Codable {
                 merchantTransactionSecureType: WFPMerchantTransactionSecureType,
                 applePayString: String = "",
                 socialUri: String = "",
+                serviceUrl: String,
                 holdTimeout: Int = 1_728_000
     ) {
         self.apiVersion = apiVersion
@@ -81,6 +83,7 @@ public struct WFPChargeRequest: Codable {
         self.merchantTransactionSecureType = merchantTransactionSecureType
         self.applePayString = applePayString
         self.socialUri = socialUri
+        self.serviceUrl = serviceUrl
         self.holdTimeout = holdTimeout
     }
 }
