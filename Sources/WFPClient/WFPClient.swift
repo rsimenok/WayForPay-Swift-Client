@@ -26,18 +26,17 @@ open class WFPClient {
         self.httpClient = httpClient
     }
 
-    public func addProduct(name: String, price: Decimal, count: Int) {
+    public func addProduct(name: String, price: String, count: Int) {
         request.productName.append(name)
         request.productPrice.append(price)
         request.productCount.append(count)
-        request.amount += price * Decimal(count)
     }
 
     public func deleteProducts() {
         request.productName = []
         request.productPrice = []
         request.productCount = []
-        request.amount = 0
+        request.amount = ""
     }
 
     public func generateSignature() {
@@ -88,7 +87,7 @@ open class WFPClient {
             addSignItem(to: &string, "\(count)")
         }
         request.productPrice.forEach { (price) in
-            addSignItem(to: &string, "\(price)")
+            addSignItem(to: &string, price)
         }
         string.remove(at: string.index(before: string.endIndex))
 

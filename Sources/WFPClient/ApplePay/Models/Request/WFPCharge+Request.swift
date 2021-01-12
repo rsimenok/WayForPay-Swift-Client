@@ -16,10 +16,10 @@ public struct WFPChargeRequest: Codable {
     public var merchantDomainName: String
     public var orderReference: String
     public var orderDate: Int64
-    public var amount: Decimal
+    public var amount: String
     public var currency: WFPCurrency
     public var productName: [String]
-    public var productPrice: [Decimal]
+    public var productPrice: [String]
     public var productCount: [Int]
     public var clientFirstName: String
     public var clientLastName: String
@@ -41,10 +41,10 @@ public struct WFPChargeRequest: Codable {
                 merchantDomainName: String,
                 orderReference: String,
                 orderDate: Int64,
-                amount: Decimal = 0.0,
+                amount: String,
                 currency: WFPCurrency,
                 productName: [String] = [],
-                productPrice: [Decimal] = [],
+                productPrice: [String] = [],
                 productCount: [Int] = [],
                 clientFirstName: String,
                 clientLastName: String,
